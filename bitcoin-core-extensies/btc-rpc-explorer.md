@@ -8,6 +8,10 @@ Een eigen block explorer helpt je privacy omdat je nu geen publieke block explor
 
 De Block Explorer die we gaan gebruiken is [BTC RPC Explorer](https://github.com/janoside/btc-rpc-explorer) van Dan Janosik.
 
+{% hint style="info" %}
+Let op: dit onderdeel is afhankelijk van de [NodeJS installatie](https://node.bitdeal.nl/raspberry-pi/algemene-dependencies-installeren#nodejs). Je kunt niet verder als je NodeJS niet geinstalleerd hebt op de Raspberry Pi.
+{% endhint %}
+
 ## Voorbereiding
 
 Er zijn een aantal voorwaarden waaraan je moet voldoen om deze block explorer te kunnen draaien:
@@ -22,23 +26,19 @@ Je bent bezig met de road to node. Als je het in de juiste volgorde aan het doen
 
 ### Transactieindex
 
-Login op je PI en open het bitcoin configuratiebestand
+Login op je Pi en open het bitcoin configuratiebestand.
 
 ```bash
 nano /home/pi/.bitcoin/bitcoin.conf
 ```
 
-Controleer of er een regel `txindex = 1` in voorkomt. Zo niet, voeg deze dan toe en sla je wijzigingen op met `Ctrl-X` gevolgd door `y`.
+Controleer of er een regel `txindex = 1` in voorkomt. Zo niet, voeg deze dan toe en sla je wijzigingen op met `Ctrl + X` gevolgd door `Y`.
 
 Herstart vervolgens `bitcoind`.
 
 ```bash
-sudo systemctl restart bitcoind.service
+sudo systemctl restart bitcoind
 ```
-
-{% hint style="info" %}
-Let op: dit onderdeel is afhankelijk van de [NodeJS installatie](https://node.bitdeal.nl/raspberry-pi/algemene-dependencies-installeren#nodejs). Je kunt niet verder als je NodeJS niet geinstalleerd hebt op de Raspberry Pi.
-{% endhint %}
 
 ## Installatie
 
@@ -85,7 +85,7 @@ BTCEXP_BITCOIND_RPC_TIMEOUT=5000
 BTCEXP_PRIVACY_MODE=true
 ```
 
-Sla het bestand op met `Ctrl-X` gevolgd door `y`.
+Pas de tekst `IP-ADRES VAN PI` aan naar wat voor jou van toepassing is. Vervang het dus met iets dat lijkt op `192.168.1.6`. Sla het bestand op met `Ctrl + X` gevolgd door `Y`.
 
 ## Service
 
@@ -117,14 +117,26 @@ RestartSec=30
 WantedBy=multi-user.target
 ```
 
-Sla het bestand op met `Ctrl-X` gevolgd door `y`.
+Sla het bestand op met `Ctrl + X` gevolgd door `Y`.
 
 ```bash
-sudo systemctl enable btc-rpc-explorer.service
-sudo systemctl start btc-rpc-explorer.service
+sudo systemctl enable btc-rpc-explorer
+sudo systemctl start btc-rpc-explorer
 ```
 
 Open nu in Firefox op je PC een tabblad naar `http://IP-ADRES VAN PI:3002` om te zien of het werkt. Bijvoorbeeld `http://192.168.1.6:3002`.
+
+## Updaten
+
+Als er een nieuwe versie beschikbaar is voor BTC RPC Explorer, kun je eenvoudig updaten door de nieuwe source uit git op te halen en deze te installeren. Wel eerst even de service stoppen en naderhand weer starten zoals hieronder staat aangegeven.
+
+```text
+sudo systemctl stop btc-rpc-explorer
+cd ~/btc-rpc-explorer
+git pull
+npm install
+sudo systemctl start btc-rpc-explorer
+```
 
 ## Tor
 
@@ -165,4 +177,25 @@ sudo cat /var/lib/tor/btc-rpc-explorer/hostname
 ```
 
 Vul deze \(zonder portnummer\) in in je tor browser. De BTC RPC Explorer homepage zou moeten verschijnen.
+
+## Koppeling met Electrum X
+
+Als je de [Electrum X](https://node.bitdeal.nl/bitcoin-core-extensies/electrum-x) guide gevolgd hebt, kun je BTC RPC Explorer meteen hierop aansluiten voor verbeterde privacy. Pas het configuratie bestand van BTC RPC Explorer aan.
+
+```bash
+nano ~/btc-rpc-explorer/.env
+```
+
+Voeg onderaan de volgende twee regels toe:
+
+```bash
+BTCEXP_ADDRESS_API=electrumx
+BTCEXP_ELECTRUMX_SERVERS=tcp://127.0.0.1:50001,ssl://127.0.0.1:50002,wss://127.0.0.1:50004,rpc://127.0.0.1:8000
+```
+
+Herstart de service om de nieuwe configuratie van kracht te laten zijn.
+
+```bash
+sudo systemctl restart btc-rpc-explorer
+```
 

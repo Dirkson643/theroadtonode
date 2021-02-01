@@ -39,7 +39,7 @@ Gezien de [git-flow van Bitcoin Core](https://github.com/bitcoin/bitcoin/blob/ma
 
 ```bash
 # Dit is dus optioneel
-git checkout 0.20
+git checkout v0.21.0
 ```
 
 ## Database

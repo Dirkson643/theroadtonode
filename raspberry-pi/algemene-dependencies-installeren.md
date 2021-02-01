@@ -30,18 +30,18 @@ sudo apt purge golang-go
 
 ### Nieuwe Go versie installeren
 
-Nadat de oude versie is verwijderd kunnen we de nieuwe installeren. Op moment van schrijven is [v1.15.5](https://golang.org/dl/) het meest recent. Als er een nieuwe versie is die je wil installeren \(of omdat een latere versie van LND dat vereist\), let er dan op dat je een ARMv6 versie van Go download.
+Nadat de oude versie is verwijderd kunnen we de nieuwe installeren. Op moment van schrijven is [v1.15.6](https://golang.org/dl/) het meest recent. Als er een nieuwe versie is die je wil installeren \(of omdat een latere versie van LND dat vereist\), let er dan op dat je een ARMv6 versie van Go download.
 
 ```bash
-wget https://golang.org/dl/go1.15.5.linux-armv6l.tar.gz
+wget https://golang.org/dl/go1.15.6.linux-armv6l.tar.gz
 ```
 
 ```bash
-sudo tar -C /usr/local -xzf go1.15.5.linux-armv6l.tar.gz
+sudo tar -C /usr/local -xzf go1.15.6.linux-armv6l.tar.gz
 ```
 
 ```bash
-rm go1.15.5.linux-armv6l.tar.gz
+rm go1.15.6.linux-armv6l.tar.gz
 ```
 
 ### Referencies updaten
@@ -60,7 +60,7 @@ export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin
 ```
 
-Sla het op met `control + X` en `Y`. Nadat het opgeslagen is kun je profile inladen.
+Sla het op met `Ctrl + X` en `Y`. Nadat het opgeslagen is kun je profile inladen.
 
 ```bash
 . ~/.profile
@@ -72,7 +72,7 @@ Om zeker van de te zijn dat alles werkt log je uit met "exit" en start je een ni
 go version
 ```
 
-Als het goed is zie je `go version go1.15.5 linux/arm` verschijnen.
+Als het goed is zie je `go version go1.15.6 linux/arm` verschijnen.
 
 ## NodeJS
 
@@ -94,4 +94,18 @@ Check of je de juiste versie hebt met:
 node --version
 # Verwachte output: v14.15.1
 ```
+
+## Yarn
+
+Download en installeer [Yarn](https://classic.yarnpkg.com/en/docs/install).
+
+```bash
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+sudo apt update && sudo apt install yarn
+```
+
+Controleer of Yarn is geïnstalleerd.
+
+\`\`\`bash yarn --version Verwachte output: 1.22.5
 

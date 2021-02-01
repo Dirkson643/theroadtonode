@@ -1,60 +1,45 @@
 # Table of contents
 
 * [Overzicht](README.md)
-
-## Introductie
-
-* [Doel en waarom](introductie/doel-en-waarom.md)
-* [Benodigdheden](introductie/benodigdheden.md)
-
-## Raspberry Pi
-
-* [Hardware aansluiten](raspberry-pi/hardware-aansluiten.md)
-* [Software flashen](raspberry-pi/software-flashen.md)
-* [Boot vanaf SSD](raspberry-pi/boot-vanaf-ssd.md)
-* [Wachtwoord wijzigen](raspberry-pi/wachtwoord-wijzigen.md)
-* [Updaten](raspberry-pi/updaten.md)
-* [Tor installatie](raspberry-pi/tor-installeren.md)
-* [Monitoring](raspberry-pi/monitoring.md)
-* [Algemene dependencies installeren](raspberry-pi/algemene-dependencies-installeren.md)
-
-## Bitcoin Core
-
-* [Installatie](bitcoin-core/installatie.md)
-* [Tor aanpassen](bitcoin-core/tor-aanpassen.md)
-* [Configuratie en starten](bitcoin-core/configuratie-en-starten.md)
-* [Automatisering](bitcoin-core/automatisering.md)
-* [Command line interface](bitcoin-core/command-line-interface.md)
-
-## Bitcoin Core Extensies
-
-* [BTC RPC Explorer](bitcoin-core-extensies/btc-rpc-explorer.md)
-* [Electrum Personal Server](bitcoin-core-extensies/electrum-personal-server.md)
-* [Specter](bitcoin-core-extensies/specter.md)
-
-## Lightning \(LND\) <a id="lightning"></a>
-
-* [Tor aanpassen](lightning/tor-aanpassen.md)
-* [Installatie](lightning/installatie.md)
-* [Configuratie](lightning/configuratie.md)
-* [Starten en CLI](lightning/starten-en-cli.md)
-* [Automatisering](lightning/automatisering.md)
-
-## Lightning extensies
-
-* [LND Connect](lightning-extensies/lnd-connect.md)
-* [Ride The Lightning](lightning-extensies/ride-the-lightning.md)
-
-## iOS
-
-* [Fully Noded](ios/fully-noded.md)
-* [Zap](ios/zap.md)
-
-## Android
-
-* [Zap](android/zap.md)
-
-## Changelog
-
-* [Changelog](changelog/changelog.md)
+* [Introductie](introductie/README.md)
+  * [Doel en waarom](introductie/doel-en-waarom.md)
+  * [Benodigdheden](introductie/benodigdheden.md)
+* [Raspberry Pi](raspberry-pi/README.md)
+  * [Hardware aansluiten](raspberry-pi/hardware-aansluiten.md)
+  * [Software flashen](raspberry-pi/software-flashen.md)
+  * [Boot vanaf SSD](raspberry-pi/boot-vanaf-ssd.md)
+  * [Wachtwoord wijzigen](raspberry-pi/wachtwoord-wijzigen.md)
+  * [Updaten](raspberry-pi/updaten.md)
+  * [Tor installatie](raspberry-pi/tor-installeren.md)
+  * [Monitoring](raspberry-pi/monitoring.md)
+  * [Algemene dependencies installeren](raspberry-pi/algemene-dependencies-installeren.md)
+  * [Port overzicht](raspberry-pi/port-overzicht.md)
+* [Bitcoin Core](bitcoin-core/README.md)
+  * [Installatie](bitcoin-core/installatie.md)
+  * [Tor aanpassen](bitcoin-core/tor-aanpassen.md)
+  * [Configuratie en starten](bitcoin-core/configuratie-en-starten.md)
+  * [Automatisering](bitcoin-core/automatisering.md)
+  * [Command line interface](bitcoin-core/command-line-interface.md)
+  * [Updaten](bitcoin-core/updaten.md)
+* [Bitcoin Core Extensies](bitcoin-core-extensies/README.md)
+  * [BTC RPC Explorer](bitcoin-core-extensies/btc-rpc-explorer.md)
+  * [Electrum Personal Server](bitcoin-core-extensies/electrum-personal-server.md)
+  * [Electrum X](bitcoin-core-extensies/electrum-x.md)
+  * [Specter](bitcoin-core-extensies/specter.md)
+* [Lightning](lightning/README.md)
+  * [Tor aanpassen](lightning/tor-aanpassen.md)
+  * [Installatie](lightning/installatie.md)
+  * [Configuratie](lightning/configuratie.md)
+  * [Starten en CLI](lightning/starten-en-cli.md)
+  * [Automatisering](lightning/automatisering.md)
+* [Lightning Extensies](lightning-extensies/README.md)
+  * [LND Connect](lightning-extensies/lnd-connect.md)
+  * [Ride The Lightning](lightning-extensies/ride-the-lightning.md)
+  * [Thunderhub](lightning-extensies/thunderhub.md)
+* [Android](android/README.md)
+  * [Zap](android/zap.md)
+* [iOS](ios/README.md)
+  * [Fully Noded](ios/fully-noded.md)
+  * [Zap](ios/zap.md)
+* [Changelog](changelog-1.md)
 

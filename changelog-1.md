@@ -1,5 +1,18 @@
 # Changelog
 
+## 2.0.0 - 2021 / januari / 25
+
+### Toevoegingen
+
+* [Updaten van Bitcoin Core](https://node.bitdeal.nl/bitcoin-core/updaten) \(Bitcoin Core\) \(Sebas\)
+* [Updaten van BTC RPC Explorer](https://node.bitdeal.nl/bitcoin-core-extensies/btc-rpc-explorer) \(Bitcoin Core Extensies\) \(Dirk\)
+* [Updaten van Electrum Personal Server](https://node.bitdeal.nl/bitcoin-core-extensies/electrum-personal-server) \(Bitcoin Core Extensies\) \(Dirk\)
+* [Updaten van Thunderhub](https://node.bitdeal.nl/lightning-extensies/thunderhub) \(Lightning Extensies\) \(Sebas\)
+
+### Aanpassingen
+
+* Menu structuur de schop op. Reden voor ophogen van major versienummer.
+
 ## 1.7.0 - 2021 / januari / 10
 
 ### Toevoegingen
@@ -12,13 +25,13 @@
 
 ### Verbeteringen
 
-* Uniformiteit omtrent commando's
+* Uniformiteit omtrent commando's.
 
 ## 1.6.0 - 2021 / januari / 09
 
 ### Toevoegingen
 
-* [Thunderhub](https://node.bitdeal.nl/lightning-extensies/thunderhub) \(Lightning Extensies\)
+* [Thunderhub](https://node.bitdeal.nl/lightning-extensies/thunderhub) \(Lightning Extensies\) \(Sebas\)
 * [Port overzicht](https://node.bitdeal.nl/raspberry-pi/port-overzicht) \(Raspberry Pi\)
 
 ### Verbeteringen
@@ -29,7 +42,7 @@
 
 ### Toevoegingen
 
-* [Zap wallet](https://node.bitdeal.nl/android/zap) \(Android\)
+* [Zap wallet](https://node.bitdeal.nl/android/zap) \(Android\) \(Dirk\)
 
 ## 1.4.1 - 2020 / december / 03
 

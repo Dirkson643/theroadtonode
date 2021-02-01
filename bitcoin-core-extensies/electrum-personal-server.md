@@ -21,11 +21,19 @@ Check dat er in `bitcoin.conf` een regel staat `disablewallet = 0`.
 nano /home/pi/.bitcoin/bitcoin.conf
 ```
 
-Als dat nog niet het geval is voeg je deze toe, sla je het bestand op \(met `Ctrl-X`\) en herstart je de bitcoind service.
+Als dat nog niet het geval is voeg je deze toe, sla je het bestand op \(met `Ctrl + X`\) en herstart je de bitcoind service.
 
 ```bash
 sudo systemctl restart bitcoind
 ```
+
+EPS heeft een wallet nodig in Bitcoin Core. Maak deze aan als deze nog niet aanwezig is.
+
+```text
+bitcoin-cli createwallet electrumpersonalserver true
+```
+
+Maak tot slot de volgende map aan en ga erin.
 
 ```bash
 mkdir .eps
@@ -56,6 +64,7 @@ Deze config-file bevat veel commentaar en tips wat je waar moet invullen. Kijk i
 * `[master-public-keys]` — zoek in Electrum je xpub op via het menu `Wallet` &gt; `Information`
 * `[bitcoin-rpc]` — `datadir = /home/pi/.bitcoin`
 * `[electrum-server]` — kies hier voor `host = 0.0.0.0` \(ipv 127.0.0.1\)
+* `wallet_filename` — maak daar `wallet_filename = electrumpersonalserver` van als je eerder hier een speciale wallet voor hebt aangemaakt. Of vul hier `wallet.dat` in als je gebruikt maakt van de default wallet van Bitcoin Core zodat het voor EPS duidelijk is welke walletfile hij moet gebruiken. Mocht je namelijk later ook `Specter` willen gebruiken dan maakt die ook wallets aan en als je dan geen `wallet_filename` hebt opgegeven start EPS niet.
 
 {% hint style="info" %}
 let bij het laatste commando in onderstaand blokje op de punt \(.\) aan het einde van de regel
@@ -123,8 +132,8 @@ WantedBy=multi-user.target
 Sluit het bestand af en sla de wijzigingen op. Vervolgens de service inschakelen en starten.
 
 ```bash
-sudo systemctl enable eps.service
-sudo systemctl start eps.service
+sudo systemctl enable eps
+sudo systemctl start eps
 ```
 
 Je kunt de voortgang van het opstarten van EPS volgen door het log-bestand te bekijken:
@@ -148,4 +157,29 @@ Als alles goed is gegaan heb je rechtsonder in het venster van Electrum een groe
 2. Klik op de Console tab
 
 Hier zie je nu dat je bent verbonden met een EPS en jouw Bitcoin Node!
+
+## Updaten
+
+Stop de service.
+
+```text
+sudo systemctl stop eps
+```
+
+Download vanaf de Github de tarball van de [nieuwste release](https://github.com/chris-belcher/electrum-personal-server/releases) van Electrum Personal Server. Kopiëer de link van source code \(tar.gz\), pak deze uit en gooi de download weg. **Vervang hier natuurlijk de versienummers met de meest recente.**
+
+```text
+cd ~/.eps
+wget https://github.com/chris-belcher/electrum-personal-server/archive/eps-v0.2.1.1.tar.gz
+tar -xvf eps-v0.2.1.1.tar.gz
+rm eps-v0.2.1.1.tar.gz
+cd electrum-personal-server-eps-v0.2.1.1/
+pip3 install use .
+```
+
+Start de service weer.
+
+```text
+sudo systemctl start eps
+```
 
